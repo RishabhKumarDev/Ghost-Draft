@@ -79,3 +79,10 @@ export const getFilePreview = (fileId) => {
     };
   }
 };
+
+// Exporting all the function at once in an obj, so it's easy to access the function with one main import of the obj.
+const storageServices = {
+  uploadFile,
+  deleteFile,
+  getFilePreview,
+};

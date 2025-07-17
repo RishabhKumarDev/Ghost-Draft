@@ -136,7 +136,7 @@ export const getPost = async (slug) => {
 };
 
 // Getting all the posts, using query.currently only using status as query in future i'll expand it.
-export const getPosts = async () => { 
+export const getPosts = async () => {
   let queries = [Query.equal("status", "active")];
 
   try {
@@ -163,3 +163,14 @@ export const getPosts = async () => {
     };
   }
 };
+
+// Exporting a bundle of all the function so, it's easy to import them at once.
+const databaseService = {
+  createPost,
+  updatePost,
+  deletePost,
+  getPost,
+  getPosts,
+};
+
+export default databaseService;
