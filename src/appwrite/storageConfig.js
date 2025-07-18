@@ -7,7 +7,7 @@ const client = new Client()
 
 const storage = new Storage(client);
 
-// This function upload's the image and returns the URL.
+// This function upload's the file(img etc.) and returns the URL.
 export const uploadFile = async (file) => {
   try {
     const uploadedFile = await storage.createFile(
@@ -86,3 +86,5 @@ const storageServices = {
   deleteFile,
   getFilePreview,
 };
+
+export default storageServices;
