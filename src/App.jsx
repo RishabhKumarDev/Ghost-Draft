@@ -39,7 +39,6 @@ function App() {
   return (
     <div className=" w-screen h-screen bg-gray-900 flex flex-wrap content-between text-white ">
       <div className=" w-full block">
-        <h1 className=" bg-red-950">Ghost Draft</h1>
         <Header />
         <main></main>
         <Footer />
