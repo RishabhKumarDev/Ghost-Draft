@@ -60,9 +60,9 @@ export const deleteFile = async (fileId) => {
 };
 
 // This function gets the file for preview
-export const getFilePreview = (fileId) => {
+export const getFilePreview = async (fileId) => {
   try {
-    const file = storage.getFilePreview(config.appwriteBucketId, fileId);
+    const file = await storage.getFilePreview(config.appwriteBucketId, fileId);
     console.log("appwrite :: storage :: getFilePreview", file);
     return {
       success: true,
