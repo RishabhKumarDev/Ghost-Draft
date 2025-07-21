@@ -37,7 +37,20 @@ function Login() {
             <Logo />
           </span>
         </div>
-        <h2 className=" text-center font-bold text-2xl leading-tight">sing in to your account</h2>
+        <h2 className=" text-center font-bold text-2xl leading-tight">
+          sing in to your account
+        </h2>
+        <p className=" mt-2 text-center text-base text-black/60">
+          {" "}
+          Don't have an account?
+          <Link
+            to={"/signup"}
+            className=" font-medium text-primary transition-all hover:underline duration-200"
+          >
+            Sign Up
+          </Link>
+        </p>
+        {error && <p className=" mt-8 text-red-600 text-center">{error}</p>}
       </div>
     </div>
   );
