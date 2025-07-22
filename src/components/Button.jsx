@@ -4,13 +4,13 @@ function Button({
   className = "",
   textColor = "text-white",
   bgColor = "bg-blue-600",
-  ...props
+  ...props // rest  values
 }) {
   return (
     <button
       type={type}
       className={`px-4 py-4 rounded-lg ${className} ${textColor} ${bgColor} `}
-      {...props}
+      {...props} // spread values
     >
       {children}
     </button>
