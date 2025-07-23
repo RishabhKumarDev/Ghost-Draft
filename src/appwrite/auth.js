@@ -8,9 +8,9 @@ const client = new Client()
 const account = new Account(client);
 
 // to create user
-export const createUser = async (email, password) => {
+export const createUser = async ({email, password, name}) => {
   try {
-    const user = await account.create(ID.unique(), email, password);
+    const user = await account.create(ID.unique(), email, password, name);
     return {
       success: true,
       data: user,
@@ -27,7 +27,7 @@ export const createUser = async (email, password) => {
 };
 
 // to login existing users
-export const loginUser = async (email, password) => {
+export const loginUser = async ({email, password}) => {
   try {
     const user = await account.createEmailPasswordSession(email, password);
     return {

@@ -38,7 +38,7 @@ export const createPost = async ({
   } catch (error) {
     console.error("appwrite :: databaseConfig :: createPost :: ", error);
     return {
-      // returning these things so this can be used to create a specifif response from the UI
+      // returning these things so this can be used to create a specific response from the UI
       success: false,
       error: {
         message: error?.message || "Failed to create Post",

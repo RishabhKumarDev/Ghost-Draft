@@ -1,29 +1,43 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Button, Input, Logo } from "./index";
 import authServices from "../appwrite/auth";
-import { login } from "../store/features/authSlice";
-import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { login } from "../store/features/authSlice";
 
-function Login() {
-  const [error, setError] = useState("");
+function SignUp() {
+  const [error, setError] = useState(null);
 
-  const navitage = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
-  const handleLogin = async (data) => {
+  const signUp = async (data) => {
     setError("");
     try {
-      const session = await authServices.loginUser(data); // after login it return a session not the user data;
-      if (session.success) {
-        const user = await authServices.getUser(); // this will return the data or user;
-        if (user.success) {
-          dispatch(login(user.data));
-          navitage("/");
-        }
+      // reverse engenering of if else logic, instead of if the data is true do this; it's if the data is not true do this(better for error handling);
+      const user = await authServices.createUser(data);
+      if (!user.success) {
+        throw new Error(user.error.message || "Failed to sign up user.");
       }
+
+      const session = await authServices.loginUser(data);
+      if (!session.success) {
+        throw new Error(
+          session.error.message || "Failed to log in user :: sign up user"
+        );
+      }
+
+      const userData = await authServices.getUser();
+      if (!userData.success) {
+        throw new Error(
+          userData.error.message || "Failed to get user Data :: sign up user."
+        );
+      }
+
+      dispatch(login(userData.data));
+      navigate("/");
     } catch (error) {
       setError(error);
     }
@@ -38,25 +52,30 @@ function Login() {
           </span>
         </div>
         <h2 className=" text-center font-bold text-2xl leading-tight">
-          sing in to your account
+          sing up to create account
         </h2>
         <p className=" mt-2 text-center text-base text-black/60">
           {" "}
-          Don't have an account?
+          Already have an account?
           <Link
-            to={"/signup"}
+            to={"/login"}
             className=" font-medium text-primary transition-all hover:underline duration-200"
           >
-            Sign Up
+            Sign In
           </Link>
         </p>
         {error && <p className=" mt-8 text-red-600 text-center">{error}</p>}
-        <form onSubmit={handleSubmit(handleLogin)} className=" mt-8">
+        <form onSubmit={handleSubmit(signUp)}>
           <div className=" space-y-5">
+            <Input
+              label="Name"
+              placeholder="Enter your name"
+              {...register("name", { required: true })}
+            />
             <Input
               label="Email:"
               type="email"
-              placeholder="Enter your email.."
+              placeholder="Enter you Email"
               {...register("email", {
                 required: true,
                 validate: {
@@ -70,7 +89,7 @@ function Login() {
             <Input
               label="Password"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Enter your Password"
               {...register("password", {
                 required: true,
                 validate: (value) =>
@@ -79,11 +98,9 @@ function Login() {
                   ) || " Please Enter a Strong Password",
               })}
             />
-            <Button 
-            children="LogIn"
-            type="submit"
-            className=" w-full"
-            />
+            <Button className=" w-full" type="submit">
+              Sign up
+            </Button>
           </div>
         </form>
       </div>
@@ -91,4 +108,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
