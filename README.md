@@ -1,12 +1,43 @@
-# React + Vite
+:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🕯️ GhostDraft
+GhostDraft is an anonymous blogging platform where anyone can share thoughts, stories, or ideas — without ever revealing their identity.
 
-Currently, two official plugins are available:
+Built for freedom of expression, GhostDraft empowers users to write safely and freely. It leverages Appwrite as a backend-as-a-service (BaaS) and follows industry-standard architecture to ensure high scalability and maintainability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Features
+✍️ Write Freely & Anonymously
+No usernames, no profiles — just pure expression.
 
-## Expanding the ESLint configuration
+🔐 Privacy First
+No identity is stored. Your content speaks for you.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+☁️ Powered by Appwrite (BaaS)
+Appwrite handles authentication (optional), database, and storage with robust security.
+
+⚙️ Scalable, Modular Codebase
+Built with modern best practices to handle future features and growth.
+
+🌓 Dark Mode Support
+Because anonymous thoughts look cooler at night.
+
+🧱 Tech Stack
+Frontend: React (or your framework)
+
+Backend: Appwrite
+
+Database: Appwrite Database
+
+Auth: Anonymous sessions via Appwrite (or optional login)
+
+Hosting: [Specify if hosted]
+
+🛠️ Architecture Highlights
+Modular file structure with separation of concerns
+
+Scalable state management and API layers
+
+Secure and performant queries using Appwrite SDK
+
+Easily extendable: Add comments, likes, or moderation tools
+
