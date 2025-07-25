@@ -9,5 +9,6 @@ import Logout from "./Header/LogoutBtn.jsx";
 import Button from "./Button.jsx";
 import Select from "./Select.jsx";
 import Input from "./Input.jsx";
+import RTE from "./RTE.jsx";
 
-export { Header, Footer, Container, Logo, Logout, Select, Button, Input };
+export { Header, Footer, Container, Logo, Logout, Select, Button, Input, RTE };
