@@ -18,11 +18,11 @@ Appwrite handles authentication (optional), database, and storage with robust se
 ⚙️ Scalable, Modular Codebase
 Built with modern best practices to handle future features and growth.
 
-🌓 Dark Mode Support
+🌓 Dark Mode
 Because anonymous thoughts look cooler at night.
 
 🧱 Tech Stack
-Frontend: React (or your framework)
+Frontend: React 
 
 Backend: Appwrite
 
@@ -30,7 +30,6 @@ Database: Appwrite Database
 
 Auth: Anonymous sessions via Appwrite (or optional login)
 
-Hosting: [Specify if hosted]
 
 🛠️ Architecture Highlights
 Modular file structure with separation of concerns
