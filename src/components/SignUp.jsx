@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { login } from "../store/features/authSlice";
 
-function SignUp() {
+function Signup() {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
@@ -108,4 +108,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;

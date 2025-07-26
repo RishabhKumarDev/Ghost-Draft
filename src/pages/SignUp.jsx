@@ -1,9 +1,9 @@
-import { SignUp } from "../components/index";
+import { Signup } from "../components/index";
 
 function SignUp() {
   return (
     <div className=" py-8">
-      <SignUp />
+      <Signup />
     </div>
   );
 }

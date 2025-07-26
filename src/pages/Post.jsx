@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Button } from "../components/index";
-import { parse } from "html-react-parser";
+import parse from "html-react-parser";
 import databaseServices from "../appwrite/databaseConfig";
 import storageServices from "../appwrite/storageConfig";
 import { Link, useParams, useNavigate } from "react-router-dom";

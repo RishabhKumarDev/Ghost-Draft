@@ -10,10 +10,11 @@ import Button from "./Button.jsx";
 import Select from "./Select.jsx";
 import Input from "./Input.jsx";
 import RTE from "./RTE.jsx";
-import SignUp from "./SignUp.jsx";
+import Signup from "./SignUp.jsx";
 import Login from "./LogIn.jsx";
 import PostCard from "./PostCard.jsx";
 import PostForm from "./post-form/PostForm.jsx";
+import AuthLayout from './AuthLayout.jsx';
 
 export {
   Header,
@@ -25,8 +26,9 @@ export {
   Button,
   Input,
   RTE,
-  SignUp,
+  Signup,
   Login,
   PostCard,
   PostForm,
+  AuthLayout
 };
