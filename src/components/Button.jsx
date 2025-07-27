@@ -1,6 +1,6 @@
 function Button({
   children,
-  type = "button",
+  type ={type} || "button",
   className = "",
   textColor = "text-white",
   bgColor = "bg-blue-600",
@@ -9,7 +9,7 @@ function Button({
   return (
     <button
       type={type}
-      className={`px-4 py-4 rounded-lg ${className} ${textColor} ${bgColor} `}
+      className={`px-4 py-4 rounded-lg cursor-pointer hover:brightness-75 duration-200 ${className} ${textColor} ${bgColor} `}
       {...props} // spread values
     >
       {children}

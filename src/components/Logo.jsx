@@ -2,7 +2,7 @@ import logo from "../assets/logo.png"
 function Logo() {
   return (
     <div>
-        <img src={logo} alt="" className=" w-28 h-28" />
+        <img src={logo} alt="" className=" w-32 h-32" />
     </div>
   )
 }

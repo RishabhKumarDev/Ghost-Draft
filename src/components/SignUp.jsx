@@ -11,9 +11,14 @@ function Signup() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const signUp = async (data) => {
+    console.log(data);
     setError("");
     try {
       // reverse engenering of if else logic, instead of if the data is true do this; it's if the data is not true do this(better for error handling);
@@ -39,7 +44,8 @@ function Signup() {
       dispatch(login(userData.data));
       navigate("/");
     } catch (error) {
-      setError(error);
+      console.log(error);
+      setError(error.message);
     }
   };
 
@@ -51,7 +57,7 @@ function Signup() {
             <Logo />
           </span>
         </div>
-        <h2 className=" text-center font-bold text-2xl leading-tight">
+        <h2 className=" text-center font-bold text-2xl leading-tight text-black">
           sing up to create account
         </h2>
         <p className=" mt-2 text-center text-base text-black/60">
@@ -65,13 +71,20 @@ function Signup() {
           </Link>
         </p>
         {error && <p className=" mt-8 text-red-600 text-center">{error}</p>}
-        <form onSubmit={handleSubmit(signUp)}>
+        <form
+          onSubmit={handleSubmit(signUp, (errors) => {
+            console.log("Validation errors:", errors);
+          })}
+        >
           <div className=" space-y-5">
             <Input
               label="Name"
               placeholder="Enter your name"
               {...register("name", { required: true })}
             />
+            {errors.name && (
+              <p className="text-red-600 text-sm">{errors.name.message}</p>
+            )}
             <Input
               label="Email:"
               type="email"
@@ -86,19 +99,21 @@ function Signup() {
                 },
               })}
             />
+            {errors.email && (
+              <p className="text-red-600 text-sm">{errors.email.message}</p>
+            )}
             <Input
               label="Password"
               type="password"
               placeholder="Enter your Password"
               {...register("password", {
                 required: true,
-                validate: (value) =>
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-                    value
-                  ) || " Please Enter a Strong Password",
               })}
             />
-            <Button className=" w-full" type="submit">
+            {errors.password && (
+              <p className="text-red-600 text-sm">{errors.password.message}</p>
+            )}
+            <Button className=" w-full " type="submit">
               Sign up
             </Button>
           </div>

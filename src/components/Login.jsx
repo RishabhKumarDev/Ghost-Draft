@@ -11,7 +11,11 @@ function Login() {
 
   const navitage = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const handleLogin = async (data) => {
     setError("");
@@ -37,8 +41,8 @@ function Login() {
             <Logo />
           </span>
         </div>
-        <h2 className=" text-center font-bold text-2xl leading-tight">
-          sing in to your account
+        <h2 className=" text-center font-bold text-2xl leading-tight text-black">
+          Sing in to your account
         </h2>
         <p className=" mt-2 text-center text-base text-black/60">
           {" "}
@@ -67,23 +71,20 @@ function Login() {
                 },
               })}
             />
+            {errors.email && (
+              <p className="text-red-600 text-sm">{errors.email.message}</p>
+            )}
             <Input
               label="Password"
               type="password"
               placeholder="Enter your password"
               {...register("password", {
-                required: true,
-                validate: (value) =>
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-                    value
-                  ) || " Please Enter a Strong Password",
-              })}
+                required: true})}
             />
-            <Button 
-            children="LogIn"
-            type="submit"
-            className=" w-full"
-            />
+            {errors.password && (
+              <p className="text-red-600 text-sm">{errors.password.message}</p>
+            )}
+            <Button children="LogIn" type="submit" className=" w-full" />
           </div>
         </form>
       </div>
