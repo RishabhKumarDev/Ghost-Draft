@@ -23,7 +23,10 @@ function PostForm({ post }) {
     });
 
   const submit = async (data) => {
+    console.log("in PostForm now, submit function provoked")
     if (post) {
+    console.log("in PostForm now, submit function provoked for updating existing post", post)
+
       try {
         const file = data.image[0]
           ? await storageServices.uploadFile(data.image[0])
@@ -31,11 +34,15 @@ function PostForm({ post }) {
         if (file && file.success) {
           await storageServices.deleteFile(post.featuredImage);
         }
-
+        console.log("file", file)
+    console.log("in PostForm now,file succesful" , post)
+       const updatedImage = file && file.success ? file.data.$id : post.featuredImage;
         const dbPostUpdate = await databaseService.updatePost(post.$id, {
           ...data,
-          featuredImage: file.success ? file.data.$id : post.featuredImage,
+          featuredImage: updatedImage,
         });
+    console.log("in PostForm now,dbpost succesful")
+console.log("dbPostUpdate:", dbPostUpdate);
 
         if (dbPostUpdate.success) {
           navigate(`/post/${dbPostUpdate.data.$id}`);
@@ -54,11 +61,13 @@ function PostForm({ post }) {
 
           const dbPost = await databaseService.createPost({
             ...data,
-            userID: userData.$id,
+            userId: userData.$id,
           });
 
           if (dbPost.success) {
             navigate(`/post/${dbPost.data.$id}`);
+          }else{
+            console.log("Post Form :: submit ::",dbPost.error.message, dbPost)
           }
         }
       } catch (error) {

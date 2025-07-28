@@ -15,7 +15,7 @@ const Input = forwardRef(function Input(
   return (
     <div>
       {label && (
-        <label htmlFor={id} className={` inline-block mb-1 pl-1 text-black`}>
+        <label htmlFor={id} className={` inline-block mb-1 pl-1 text-white`}>
           {label}
         </label>
       )}

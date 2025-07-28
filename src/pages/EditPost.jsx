@@ -10,6 +10,7 @@ function EditPost() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("you are in Edit Post file....")
     const getPost = async () => {
       try {
         const post = await databaseSevices.getPost(slug);

@@ -18,6 +18,7 @@ function Post() {
 
   // fetch post
   useEffect(() => {
+    console.log("fetching post in Pages :: post :: get Post")
     const getPost = async () => {
       try {
         const post = await databaseServices.getPost(slug);
@@ -42,8 +43,9 @@ function Post() {
   useEffect(() => {
     const getImgURL = async () => {
       try {
-        const imgUrl = await storageServices.getFilePreview(post.featuredImage);
+        const imgUrl = await storageServices.getFilePreview(post?.featuredImage);
         if (imgUrl.success) {
+          console.log("Pages :: Post :: getImagURL :: ",imgUrl.data)
           setImageUrl(imgUrl.data);
         } else {
           throw new Error(imgUrl.error.message);
@@ -53,7 +55,7 @@ function Post() {
       }
     };
 
-    if (post.featuredImage) getImgURL();
+    if (post?.featuredImage) getImgURL();
   }, [post]);
 
   // delete post

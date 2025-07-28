@@ -14,8 +14,10 @@ export const createPost = async ({
   content,
   featuredImage,
   status,
-  userID,
+  userId
+,
 }) => {
+  console.log({title,slug,content,featuredImage,status,userId})
   try {
     const createDoc = await databases.createDocument(
       config.appwriteDatabaseId,
@@ -26,7 +28,8 @@ export const createPost = async ({
         content,
         featuredImage,
         status,
-        userID,
+        userId
+,
       }
     );
     console.log("databaseConfig :: createPost :: response =", createDoc);
@@ -51,7 +54,7 @@ export const createPost = async ({
 // This updates a Post(doc) in Database.
 export const updatePost = async (
   slug,
-  { title, content, featuredImage, status }
+  { title, content, featuredImage, status,  }
 ) => {
   try {
     const updateDoc = await databases.updateDocument(

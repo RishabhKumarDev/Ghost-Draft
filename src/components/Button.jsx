@@ -1,6 +1,6 @@
 function Button({
   children,
-  type ={type} || "button",
+  type ="button",
   className = "",
   textColor = "text-white",
   bgColor = "bg-blue-600",

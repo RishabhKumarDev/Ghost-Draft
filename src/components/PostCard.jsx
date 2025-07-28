@@ -36,7 +36,7 @@ function PostCard({ $id, title, featuredImage }) {
             <div className="h-48 bg-gray-300 animate-pulse" />
           )}
         </div>
-        <h2 className=" text-xl font-bold">{title}</h2>
+        <h2 className=" text-xl font-bold text-black">{title}</h2>
       </div>
     </Link>
   );
