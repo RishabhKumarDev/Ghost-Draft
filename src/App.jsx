@@ -38,10 +38,10 @@ function App() {
   }
 
   return (
-    <div className=" w-screen h-screen bg-gray-900 flex flex-wrap content-between text-white ">
+    <div className=" w-screen h-screen bg-zinc-900 flex flex-wrap content-between text-white ">
       <div className=" w-full block">
         <Header />
-        <main>
+        <main className="flex-grow bg-zinc-900">
           <Outlet/>
         </main>
         <Footer />

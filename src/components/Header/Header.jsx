@@ -35,7 +35,7 @@ function Header() {
   ];
 
   return (
-    <header className=" py-3 shadow bg-gray-500">
+    <header className=" shadow bg-zinc-950">
       <Container>
         <nav className=" flex">
           <div className=" mr-4">
@@ -43,15 +43,15 @@ function Header() {
               <Logo />
             </Link>
           </div>
-          <ul className="flex  ml-auto">
+          <ul className="flex  ml-auto items-center space-x-2">
             {navItems.map((item) =>
               // active true means either the user is login or not(use this to show relevant links on the navbar);
               item.active ? (
                 <li
                   key={item.name}
-                  className=" inline-block py-6 px-6 duration-200 hover:bg-blue-100 rounded-full"
+                  className=" inline-block py-2 px-4 duration-200 hover:bg-amber-400/10 rounded-full"
                 >
-                  <Link to={item.slug}>{item.name}</Link>
+                  <Link className="text-zinc-300 hover:text-amber-400" to={item.slug}>{item.name}</Link>
                 </li>
               ) : null
             )}

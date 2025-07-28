@@ -51,26 +51,28 @@ function Signup() {
 
   return (
     <div className=" flex items-center justify-center w-full">
-      <div className=" mx-auto w-full max-w-lg bg-gray-100 border border-black/10 rounded-xl p-10">
+      <div className="mx-auto w-full max-w-lg bg-zinc-900 border border-zinc-700 shadow-[0_0_20px_-5px_rgba(251,191,36,0.15)] hover:shadow-[0_0_30px_-5px_rgba(251,191,36,0.25)] transition-shadow duration-300 rounded-xl p-10">
         <div className=" mb-2 flex justify-center">
-          <span className=" inline-block w-full max-w-[100px]">
+          <span className=" inline-block w-full max-w-[120px]">
             <Logo />
           </span>
         </div>
-        <h2 className=" text-center font-bold text-2xl leading-tight text-black">
+        <h2 className=" text-center font-bold text-2xl leading-tight text-white">
           sing up to create account
         </h2>
-        <p className=" mt-2 text-center text-base text-black/60">
+        <p className=" mt-2 text-center text-base  text-zinc-400">
           {" "}
           Already have an account?
           <Link
             to={"/login"}
-            className=" font-medium text-primary transition-all hover:underline duration-200"
+            className=" font-medium text-amber-400 hover:text-amber-300 transition-all hover:underline duration-200"
           >
             Sign In
           </Link>
         </p>
-        {error && <p className=" mt-8 text-red-600 text-center">{error}</p>}
+        {error && (
+          <p className=" mt-8 text-red-600 text-sm text-center">{error}</p>
+        )}
         <form
           onSubmit={handleSubmit(signUp, (errors) => {
             console.log("Validation errors:", errors);
