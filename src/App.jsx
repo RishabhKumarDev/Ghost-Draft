@@ -5,6 +5,7 @@ import { login, logout } from "./store/features/authSlice";
 import { Header, Footer } from "./components/index";
 import "./App.css";
 import { Outlet } from "react-router-dom";
+import GhostLoader from "./assets/loader/GhostLoader";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ function App() {
   if (loading) {
     return (
       <>
-        <div className=" bg-amber-900">Loading...</div>
+        <div > <GhostLoader/></div>
       </>
     );
   }

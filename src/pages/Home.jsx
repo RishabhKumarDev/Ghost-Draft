@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, PostCard } from "../components/index";
 import databaseServices from "../appwrite/databaseConfig";
+import GhostLoader from "../assets/loader/GhostLoader";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -28,9 +29,7 @@ function Home() {
         <Container>
           <div className=" flex flex-wrap">
             <div className=" py-2 w-full">
-              <h1 className=" text-2xl hover:bg-gray-500 font-bold">
-                Wait Bro Loading Data...(Are you loged IN tho?)
-              </h1>
+             <GhostLoader text="LogIN dude..."/>
             </div>
           </div>
         </Container>

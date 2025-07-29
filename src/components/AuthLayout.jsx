@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import GhostLoader from "../assets/loader/GhostLoader";
 
 export default function Protected({ children, authentication = true }) {
 const [loader, setLoder] = useState(true);
@@ -17,5 +18,5 @@ useEffect(() => {
     setLoder(false);
 }, [authStatus, authentication, navigate]);
 
-return loader ? <h1>Loading...</h1> : <>{children}</>;
+return loader ? <GhostLoader text="Boo.. wait..."/> : <>{children}</>;
 }
