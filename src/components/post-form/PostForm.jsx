@@ -83,7 +83,8 @@ console.log("dbPostUpdate:", dbPostUpdate);
         .toLowerCase()
         .replace(/[^\w\s-]/g, "") // Remove all non-word characters except space and hyphen
         .replace(/\s+/g, "-") // Replace spaces with hyphens
-        .replace(/--+/g, "-"); // Replace multi hypens with one hypen
+        .replace(/--+/g, "-") // Replace multi hypens with one hypen
+        .slice(0, 36); 
       return slug;
     }
 
